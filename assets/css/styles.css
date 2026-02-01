@@ -10,6 +10,20 @@ body {
     overflow-x: hidden;
 }
 
+@font-face {
+    font-family: 'PinyonScript-Regular';
+    src: url('../fonts/fonts/ttf/PinyonScript-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Sloop';
+    src: url('../fonts/Sloop-ScriptThree/Sloop-ScriptThree.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* Contenedor principal */
 .container {
     min-height: 100vh;
@@ -145,6 +159,17 @@ body {
     overflow-y: auto;
     scroll-behavior: smooth;
     max-width: 100%;
+    position: relative;
+}
+
+.decorations {
+    position: absolute;
+    right: 0;
+    z-index: 100000;
+}
+
+.decorations img {
+    transform: translateX(-160px) translateY(35px);
 }
 
 .section {
@@ -227,8 +252,8 @@ body {
 }
 
 .couple-names {
-    font-size: 70px;
-    font-family: 'Brush Script MT', cursive;
+    font-size: 100px;
+    font-family: 'PinyonScript-Regular', cursive;
     color: #606547;
     margin-bottom: 40px;
     text-align: center;
@@ -243,10 +268,11 @@ body {
 }
 
 .event-title {
-    font-size: 50px;
-    font-family: 'Brush Script MT', cursive;
+    font-size: 65px;
+    font-family: 'Sloop', cursive;
     color: #606547;
-    margin-bottom: 30px;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 .date-container {
@@ -364,9 +390,9 @@ body {
 }
 
 .countdown-title {
-    font-size: 70px;
+    font-size: 40px;
     color: #606547;
-    font-family: 'Brush Script MT', cursive;
+    font-style: italic;
     margin-bottom: 40px;
     text-align: center;
 }
@@ -437,21 +463,35 @@ body {
 }
 
 @media (max-width: 480px) {
+    .countdown-section {
+        max-width: 100%;
+    }
+
     .countdown-container {
-        gap: 15px;
+        gap: 10px;
+        flex-wrap: nowrap;
     }
 
     .countdown-item {
-        min-width: 70px;
+        min-width: 50px;
         padding: 10px;
     }
 
+    .event-title {
+        font-size: 55px;
+    }
+
     .countdown-number {
-        font-size: 40px;
+        font-size: 25px;
     }
 
     .countdown-label {
-        font-size: 12px;
+        font-size: 11px;
+    }
+
+    .decorations img {
+        width: 180px;
+        transform: translateX(-5px) translateY(5px);
     }
 }
 
@@ -621,8 +661,20 @@ body {
         font-size: 22px;
     }
 
+    .parents {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .parent-name {
+        font-size: 19px;
+    }
+
+    .blessing {
+        font-size: 20px;
+    }
+
     .couple-names {
-        font-size: 36px;
+        font-size: 60px;
     }
 
     .quote {
