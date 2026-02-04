@@ -172,6 +172,15 @@ body {
     transform: translateX(-160px) translateY(35px);
 }
 
+.decorations2 {
+    position: absolute;
+    z-index: 100001;
+}
+
+.decorations2 img {
+    transform: translateX(160px) translateY(35px) rotateY(180deg);
+}
+
 .section {
     min-height: 100vh;
     display: flex;
@@ -216,7 +225,7 @@ body {
     text-align: center;
     color: #606547;
     margin-bottom: 30px;
-    font-size: 21px;
+    font-size: 22px;
     max-width: 400px;
     line-height: 1.6;
 }
@@ -264,7 +273,7 @@ body {
     font-style: italic;
     color: #606547;
     margin-bottom: 20px;
-    font-size: 18px;
+    font-size: 19px;
 }
 
 .event-title {
@@ -302,6 +311,14 @@ body {
     line-height: 1;
 }
 
+.date-number2 {
+    font-size: 50px;
+    font-weight: bold;
+    color: #606547;
+    line-height: 1;
+    margin-top: -30 px;
+}
+
 .event-details {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -319,6 +336,11 @@ body {
     height: 330px;
     margin: 0 auto 15px;
     border-radius: 7px;
+    transition: all 0.3s ease;
+}
+
+.event-card img:hover {
+    filter: grayscale(100%);
 }
 
 .event-txt {
@@ -458,7 +480,7 @@ body {
     }
 
     .countdown-message {
-        font-size: 18px;
+        font-size: 20px;
     }
 }
 
@@ -490,8 +512,18 @@ body {
     }
 
     .decorations img {
-        width: 180px;
+        width: 170px;
         transform: translateX(-5px) translateY(5px);
+    }
+
+    .decorations2 img {
+        width: 170px;
+        transform: translateX(5px) translateY(5px) rotateY(180deg);
+    }
+
+    .monogram-text img {
+        max-width: 100px;
+        max-height: 100px;
     }
 }
 
@@ -619,6 +651,47 @@ body {
     transform: scale(1.05);
 }
 
+.txt-all {
+    text-align: center;
+    color: #606547;
+    font-style: italic;
+    max-width: 400px;
+    font-size: 20px;
+    margin-top: 14px;
+}
+
+/* Reproductor */
+#bg-audio {
+    display: none;
+}
+
+.music-button {
+    position: fixed;
+    bottom: 45px;
+    right: 25px;
+    background: linear-gradient(135deg, #EBE8E3 0%, #d4d0c8 100%);
+    color: #5a3e1b;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 22px;
+    font-size: 14px;
+    font-family: 'Segoe UI', sans-serif;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.music-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.music-button.playing {
+    background: linear-gradient(135deg, #b9932f, #e6d18c);
+    color: #3d2b12;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .couple-names {
@@ -632,6 +705,7 @@ body {
     .event-details {
         grid-template-columns: 1fr;
         gap: 30px;
+        margin-top: -35px;
     }
 
     .parents {
@@ -652,6 +726,10 @@ body {
 }
 
 @media (max-width: 480px) {
+    .invitation {
+        margin-top: 30px;
+    }
+
     .seal {
         width: 60px;
         height: 60px;
@@ -670,7 +748,7 @@ body {
     }
 
     .blessing {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .couple-names {
@@ -678,7 +756,26 @@ body {
     }
 
     .quote {
-        font-size: 16px;
+        max-width: 300px;
+        font-size: 17px;
+    }
+
+    .initials-large {
+        font-size: 60px;
+    }
+
+    .txt-all {
+        max-width: 300px;
+    }
+
+    .txt-alll {
+        margin-bottom: 90px !important;
+    }
+
+    .event-address {
+        margin: 0 auto;
+        text-align: center;
+        max-width: 250px;
     }
 }
 

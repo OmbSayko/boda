@@ -41,3 +41,19 @@ invitation.addEventListener('wheel', (e) => {
         e.preventDefault();
     }
 });
+
+// Reproductor de música
+const audio = document.getElementById("bg-audio");
+const btn = document.getElementById("music-btn");
+
+btn.addEventListener("click", () => {
+    if (audio.paused) {
+        audio.play();
+        btn.classList.add("playing");
+        btn.textContent = "🔊 Música activada";
+    } else {
+        audio.pause();
+        btn.classList.remove("playing");
+        btn.textContent = "🎵 Nuestra canción";
+    }
+});
