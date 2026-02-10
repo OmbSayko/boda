@@ -84,40 +84,9 @@
                                 </div>
                             </div>
                             <p class="countdown-message">¡Nos vemos pronto!</p>
+                            <button class="calendar-btn" onclick="openGoogleCalendar()">📅 Agregar al
+                                calendario</button>
                         </div>
-
-                        <script>
-                            // Contador Regresivo
-                            function updateCountdown() {
-                                // Fecha de la boda: 16 de mayo de 2025, 13:00 hrs
-                                const weddingDate = new Date('2026-05-16T13:00:00').getTime();
-                                const now = new Date().getTime();
-                                const distance = weddingDate - now;
-
-                                if (distance < 0) {
-                                    document.getElementById('days').textContent = '0';
-                                    document.getElementById('hours').textContent = '0';
-                                    document.getElementById('minutes').textContent = '0';
-                                    document.getElementById('seconds').textContent = '0';
-                                    document.querySelector('.countdown-message').textContent = '¡Ya es nuestro gran día!';
-                                    return;
-                                }
-
-                                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                                document.getElementById('days').textContent = days;
-                                document.getElementById('hours').textContent = hours;
-                                document.getElementById('minutes').textContent = minutes;
-                                document.getElementById('seconds').textContent = seconds;
-                            }
-
-                            // Actualizar el contador cada segundo
-                            updateCountdown();
-                            setInterval(updateCountdown, 1000);
-                        </script>
 
                         <div class="event-details">
                             <div class="event-card">
@@ -152,7 +121,7 @@
                     <div class="section photos-section" data-section="1">
                         <h2 class="couple-names">Los Novios</h2>
                         <div class="couple-photo">
-                            <img src="assets/img/novios/novios.jpg" alt="Novios">
+                            <img src="assets/img/novios/novios.png" alt="Novios">
                             <div class="initials-large">Y & O</div>
                         </div>
                         <p class="txt-all">

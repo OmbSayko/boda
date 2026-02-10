@@ -42,6 +42,36 @@ invitation.addEventListener('wheel', (e) => {
     }
 });
 
+// Contador Regresivo
+function updateCountdown() {
+    const weddingDate = new Date('2026-05-16T13:00:00').getTime();
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
+
+    if (distance < 0) {
+        document.getElementById('days').textContent = '0';
+        document.getElementById('hours').textContent = '0';
+        document.getElementById('minutes').textContent = '0';
+        document.getElementById('seconds').textContent = '0';
+        document.querySelector('.countdown-message').textContent = '¡Ya es nuestro gran día!';
+        return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById('days').textContent = days;
+    document.getElementById('hours').textContent = hours;
+    document.getElementById('minutes').textContent = minutes;
+    document.getElementById('seconds').textContent = seconds;
+}
+
+// Actualizar el contador cada segundo
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
 // Reproductor de música
 const audio = document.getElementById("bg-audio");
 const btn = document.getElementById("music-btn");
@@ -57,3 +87,18 @@ btn.addEventListener("click", () => {
         btn.textContent = "🎵 Nuestra canción";
     }
 });
+
+// Fecha del evento
+function openGoogleCalendar() { 
+    const title = encodeURIComponent("Nuestra Boda" + " - " + "Yesica" + " & " + "Oscar" + "💍");
+    const location = encodeURIComponent("Parroquia de San Antonio de Padua," + " Calle Miguel Hidalgo 1," + " San Antonio Acahualco," + " Zinacantepec, Méx.");
+    const details = encodeURIComponent("¡Acompáñanos en nuestro día especial!");
+
+    // Formato: YYYYMMDDTHHMMSS
+    const startDate = "20260516T130000";
+    const endDate = "20260516T180000";
+
+    const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDate}/${endDate}&details=${details}&location=${location}`;
+
+    window.open(url, "_blank");
+}
