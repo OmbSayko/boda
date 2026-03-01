@@ -23,7 +23,28 @@
 
             <!-- Invitación -->
             <div class="invitation" id="invitation">
-                <audio loop autoplay src="assets/music/Amores de Montaña  Banda la Reyna de Oaxaca (Estreno 2025) RDOMUSIC.mp3"></audio>
+                <audio controls autoplay class="custom-audio">
+                    <source src="assets/music/song2.mp3" type="audio/mpeg">
+                    Tu navegador no soporta audio HTML5.
+                </audio>
+
+                <style>
+                    .custom-audio {
+                        width: 100%;
+                        max-width: 350px;
+                        background-color: transparent;
+                        margin: 0 auto;
+                        display: flex;
+                        justify-content: center;
+                        text-align: center;
+                    }
+
+                    /* Fondo general del control (Chrome / Edge) */
+                    .custom-audio::-webkit-media-controls-panel {
+                        background-color: #ffffff;
+                        
+                    }
+                </style>
 
                 <div class="invitation-content" id="invitationContent">
                     <div class="decorations"><img src="assets/img/decorations/2.png" alt="decorations"></div>
