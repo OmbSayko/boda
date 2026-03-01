@@ -72,24 +72,38 @@ function updateCountdown() {
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
-// Reproductor de música
-const audio = document.getElementById("bg-audio");
-const btn = document.getElementById("music-btn");
+// Script fotos
+    function uploadImage(event) {
+    const file = event.target.files[0];
+    if (!file) return;
 
-btn.addEventListener("click", () => {
-    if (audio.paused) {
-        audio.play();
-        btn.classList.add("playing");
-        btn.textContent = "🔊 Música activada";
-    } else {
-        audio.pause();
-        btn.classList.remove("playing");
-        btn.textContent = "🎵 Nuestra canción";
-    }
-});
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+
+        // 🔹 Mostrar miniatura
+        const img = document.createElement("img");
+    img.src = e.target.result;
+    document.getElementById("previewContainer").appendChild(img);
+
+    // 🔹 Subir a Drive
+    const base64 = e.target.result.split(',')[1];
+
+    fetch("https://script.google.com/macros/s/AKfycbw35dXirBqu4gVr3hRgkJhqIjbFdlatTDHaKSo7mNZpy_sozpkNZqtU5b7chqqX9bEi/exec", {
+        method: "POST",
+    body: new URLSearchParams({
+        data: base64,
+    name: file.name,
+    type: file.type
+            })
+        });
+    };
+
+    reader.readAsDataURL(file);
+}
 
 // Fecha del evento
-function openGoogleCalendar() { 
+function openGoogleCalendar() {
     const title = encodeURIComponent("Nuestra Boda" + " - " + "Yesica" + " & " + "Oscar" + "💍");
     const location = encodeURIComponent("Parroquia de San Antonio de Padua," + " Calle Miguel Hidalgo 1," + " San Antonio Acahualco," + " Zinacantepec, Méx.");
     const details = encodeURIComponent("¡Acompáñanos en nuestro día especial!");

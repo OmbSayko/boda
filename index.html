@@ -23,13 +23,8 @@
 
             <!-- Invitación -->
             <div class="invitation" id="invitation">
-                <audio id="bg-audio" loop>
-                    <source src="assets/music/Perfect - Ed Sheeran.mp3" type="audio/mpeg">
-                </audio>
+                <audio loop autoplay src="assets/music/Amores de Montaña  Banda la Reyna de Oaxaca (Estreno 2025) RDOMUSIC.mp3"></audio>
 
-                <button id="music-btn" class="music-button">
-                    🎵 Nuestra canción
-                </button>
                 <div class="invitation-content" id="invitationContent">
                     <div class="decorations"><img src="assets/img/decorations/2.png" alt="decorations"></div>
                     <div class="decorations2"><img src="assets/img/decorations/2.png" alt="decorations2"></div>
@@ -122,7 +117,6 @@
                         <h2 class="couple-names">Los Novios</h2>
                         <div class="couple-photo">
                             <img src="assets/img/novios/novios.png" alt="Novios">
-                            <div class="initials-large">Y & O</div>
                         </div>
                         <p class="txt-all">
                             Con gran alegría los invitamos a compartir este día tan especial en nuestras vidas.
@@ -133,13 +127,32 @@
                     <div class="section gallery-section" data-section="5">
                         <h2 class="section-title">Galería de Recuerdos</h2>
                         <div class="photo-grid">
-                            <div class="photo-item">Foto 1</div>
-                            <div class="photo-item">Foto 2</div>
-                            <div class="photo-item">Foto 3</div>
-                            <div class="photo-item">Foto 4</div>
-                            <div class="photo-item">Foto 5</div>
-                            <div class="photo-item">Foto 6</div>
+                            <div class="photo-item" onclick="document.getElementById('fileInput').click()">
+                                Cargar fotos
+                            </div>
                         </div>
+
+                        <div id="previewContainer" class="preview-container"></div>
+
+                        <input type="file" id="fileInput" style="display:none" accept="image/*"
+                            onchange="uploadImage(event)">
+                        <style>
+                            .preview-container {
+                                display: flex;
+                                flex-wrap: wrap;
+                                gap: 10px;
+                                margin-top: 20px;
+                            }
+
+                            .preview-container img {
+                                width: 100px;
+                                height: 100px;
+                                object-fit: cover;
+                                border-radius: 8px;
+                                border: 2px solid #606547;
+                            }
+                        </style>
+
                         <p class="txt-alll"
                             style="text-align: center; margin-top: 60px; color: #606547; font-style: italic; margin-bottom: 40px; font-size: 20px    ;">
                             ¡Esperamos contar con tu presencia en este día tan especial!
@@ -150,7 +163,7 @@
         </div>
     </div>
 
-    <script src="assets/js/main.js"></script> ¿
+    <script src="assets/js/main.js"></script>
 
 </body>
 

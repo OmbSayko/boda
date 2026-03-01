@@ -466,7 +466,7 @@ body {
     margin-top: 35px;
     font-size: 14px;
     font-style: italic;
-    text-align: center; 
+    text-align: center;
     color: #606547;
     border: none;
     background-color: transparent;
@@ -712,14 +712,17 @@ body {
 }
 
 .photo-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 15px;
     max-width: 800px;
     width: 100%;
 }
 
 .photo-item {
+    width: 150px;
+    height: auto;
     aspect-ratio: 1;
     background: linear-gradient(135deg, #606547, #8B8461);
     border-radius: 10px;
@@ -744,38 +747,6 @@ body {
     max-width: 400px;
     font-size: 20px;
     margin-top: 14px;
-}
-
-/* Reproductor */
-#bg-audio {
-    display: none;
-}
-
-.music-button {
-    position: fixed;
-    bottom: 45px;
-    right: 25px;
-    background: linear-gradient(135deg, #EBE8E3 0%, #d4d0c8 100%);
-    color: #5a3e1b;
-    border: none;
-    border-radius: 30px;
-    padding: 12px 22px;
-    font-size: 14px;
-    font-family: 'Segoe UI', sans-serif;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-    z-index: 999;
-}
-
-.music-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
-}
-
-.music-button.playing {
-    background: linear-gradient(135deg, #b9932f, #e6d18c);
-    color: #3d2b12;
 }
 
 /* Responsive */
